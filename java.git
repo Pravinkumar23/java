@@ -1,0 +1,29 @@
+class ThreadsDemoUsingInterfaceAndLambda
+{
+    public static void main(String[] args)
+    {
+         Thread t1=new Thread(()->
+    {
+       for(int i=1;i<=5;i++)
+       {
+        System.out.println("Hi");
+        try{Thread.sleep(1000);}catch(Exception e){}
+       }
+    });                                    //we cant create(type) thread in class in inerface so what we are creating a new thread obj in Public class
+         Thread t2=new Thread(()->           //due to Thread here v r putting RUN() nt show
+    {                                        
+      for(int i=1;i<=5;i++)
+         {
+            System.out.println("Hello");
+            try{Thread.sleep(1000);}catch(Exception e){}
+         }
+       });                                    //passing a main obj in thread and running a program
+        
+        t1.start();                                      
+        try{Thread.sleep(10);}catch(Exception e){}  //due to thz line there will be no clash between executing the output
+        t2.start();                                 //so the output will b in proper parallel manner
+        
+    }
+}
+
+
